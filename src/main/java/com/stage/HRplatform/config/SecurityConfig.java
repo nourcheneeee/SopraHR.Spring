@@ -46,8 +46,8 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) // Disable CSRF as you're likely working with stateless JWT authentication
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**", "/api/users", "/error").permitAll() // Public endpoints
-                        .requestMatchers("/admin/**").hasRole("ADMIN")  // Role-based access control
+                        .requestMatchers("/api/auth/**", "/api/users", "/error").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/employee/**").hasRole("EMPLOYEE")
                         .anyRequest().authenticated()
                 )
